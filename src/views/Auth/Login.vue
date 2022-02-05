@@ -44,12 +44,13 @@ export default {
             } else if (this.loginForm.password === '') {
                 this.isError = 'Your password is empty! Please fill this form below!'
             } else {
-                axiosApiIntances.post('http://localhost:3009/backend9/api/v1/auth/login', data)
+                axiosApiIntances.post('auth/login', data)
                 .then((res) => {
                     // console.log(res)
                     this.isSuccess = res.data.msg
                     localStorage.setItem('token', res.data.data.token)
                     localStorage.setItem('user_id', res.data.data.user_id)
+                    localStorage.setItem('status', res.data.data.user_status)
                     setTimeout(() => {
                         this.$router.push({ path: "/home" })
                     },3000)

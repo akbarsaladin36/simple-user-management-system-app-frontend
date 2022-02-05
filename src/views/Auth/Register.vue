@@ -62,7 +62,7 @@ export default {
             } else if(this.registerForm.password !== this.registerForm.confirmPassword) {
                 this.isError = 'A password and confirm password is not match. Please make sure your password and confirm password is matched!'
             } else {
-                axiosApiIntances.post('http://localhost:3009/backend9/api/v1/auth/register', data)
+                axiosApiIntances.post('auth/register', data)
                 .then((res) => {
                     this.isSuccess = res.data.msg
                     this.$router.push({ path: "/login" })
